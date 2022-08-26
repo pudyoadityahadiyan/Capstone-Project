@@ -131,8 +131,8 @@ def raport():
     global nama_siswa
     while True:
         nama_siswa = str.title(input("Masukan Nama Siswa : "))
-        IP()
         index()
+        IP()
         if nama_siswa in list_siswa:
             print("="*(50))
             print (f'Raport {nama_siswa} NIM {list_siswa[nama_siswa]["NIM"]} \nSemester Ganjil Tahun ajaran 2022 - 2023')
@@ -216,7 +216,6 @@ def daftar_mahasiswa():
     print("="*30)
     print("\n")
 
-
 def ganti_nama():
     global list_siswa
     input_mahasiswa = str.title(input("Masukan Nama Siswa : "))
@@ -251,21 +250,18 @@ List Menu:
         print(Nilai)
         masuk = (input('Masukan Nomer Menu : '))
         try:
-            if int(masuk) == 5:
-                break
             if int(masuk) == 1:
                 ket = "Input"
                 input_nilai()
-                break
-            if int(masuk) == 2:
+            elif int(masuk) == 2:
                 ket = "Edit"
                 input_nilai()
-            if int(masuk) == 4:
-                rekap_nilai()
-                break
-            if int(masuk) == 3:
+            elif int(masuk) == 3:
                 ket = "Hapus"
-                input_nilai()
+                input_nilai()   
+            elif int(masuk) == 4:
+                rekap_nilai()
+            elif int(masuk) == 5:
                 break
             else:
                 print("="*(40))
