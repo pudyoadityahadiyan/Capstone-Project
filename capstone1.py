@@ -222,7 +222,7 @@ def ganti_nama():
     try:
         list_siswa[input_mahasiswa]
         input_mahasiswa2 = str.title(input("Masukan Nama Baru Siswa Baru : "))
-        list_siswa[input_mahasiswa] = list_siswa.pop(input_mahasiswa2)
+        list_siswa[input_mahasiswa2] = list_siswa.pop(input_mahasiswa)
     except:
         print(f'Tidak ada siswa bernama {input_mahasiswa}')
 
