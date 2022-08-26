@@ -290,9 +290,11 @@ def input_nilai():
 
                         if ket == "Input" and list_siswa[nama]["Pelajaran"][pelajaran][option[int(opsi)-1]] !=0:
                             print("\nData Sudah di Input\n")
+                            break
                         elif ket == "Hapus" :
                             if list_siswa[nama]["Pelajaran"][pelajaran][option[int(opsi)-1]] ==0:
                                 print("\nData Kosong\n")
+                                break
                             else:
                                 list_siswa[nama]["Pelajaran"][pelajaran][option[int(opsi)-1]] = 0
                                 break                        
