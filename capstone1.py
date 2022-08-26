@@ -1,5 +1,5 @@
 list_siswa = {
-    "Anggur" :{ "NIM" : 18922002,
+    "Anggun" :{ "NIM" : 18922002,
                 "Pelajaran" :{
     
         "Matematika" :
@@ -83,7 +83,6 @@ list_siswa = {
     }}
 }
 
-
 def rekap_nilai():
     # mata_pelajaran = 'Matematika'
     while True:
@@ -95,10 +94,9 @@ Bahasa Indonesia
         ''')
         print (a)
         mata_pelajaran = str.title(input('Masukan Pelajaran : '))
-        mata_pelajaran = "Matematika"
         try:
             list_siswa
-            # index()
+            index()
             a = b = c = 0
             p =  "NIM"+ " "*9 + "|" + " Nama Siswa"+" "*(24-len("Nama Siswa"))+"|"+ " UTS"+" "*4 + "|" + " UAS"+" "*4 + "|" + " Praktikum"+" |"+ " Tugas"+" |"+" Index Siswa"+" |"
             p2 = "NIM"+ " "*9 + "|" + " Nama Siswa"+" "*(24-len("Nama Siswa"))
@@ -152,19 +150,21 @@ def raport():
 def kemahasiswaan():
     
         while True:
-            point = ["Tambah Siswa", "Ganti Nama Siswa", "Hapus Siswa", "Keluar" ]
+            point = ["Daftar Siswa","Tambah Siswa", "Ganti Nama Siswa", "Hapus Siswa", "Keluar" ]
             print ('Menu Kemahasiswaan : ')
             for i,j in enumerate(point):
                 print (f'{i+1}. {j}')
             pilih = input('Pilihan Anda : ')
             try:
-                if int(pilih) == 1:
+                if int(pilih) == 2:
                     mahasiswa_baru()
-                elif int(pilih) == 2:
-                    ganti_nama()
                 elif int(pilih) == 3:
-                    hapus_mahasiswa()
+                    ganti_nama()
                 elif int(pilih) == 4:
+                    hapus_mahasiswa()
+                elif int(pilih) == 1:
+                    daftar_mahasiswa()
+                elif int(pilih) == 5:
                     break
                 
             except :
@@ -207,6 +207,16 @@ def mahasiswa_baru():
 
     list_siswa.update(mahasiswa_baru)
 
+def daftar_mahasiswa():
+    print("\n")
+    print("NIM\t\t| Nama Siswa")
+    print("="*30)
+    for i,j in list_siswa.items():
+        print(j["NIM"],"\t|",i)
+    print("="*30)
+    print("\n")
+
+
 def ganti_nama():
     global list_siswa
     input_mahasiswa = str.title(input("Masukan Nama Siswa : "))
@@ -235,12 +245,13 @@ List Menu:
 1. Input Nilai
 2. Ganti Nilai
 3. Hapus Nilai
-4. Kembali
+4. Rekap Nilai Mahasiswa
+5. Kembali
         '''
         print(Nilai)
         masuk = (input('Masukan Nomer Menu : '))
         try:
-            if int(masuk) == 4:
+            if int(masuk) == 5:
                 break
             if int(masuk) == 1:
                 ket = "Input"
@@ -249,6 +260,8 @@ List Menu:
             if int(masuk) == 2:
                 ket = "Edit"
                 input_nilai()
+            if int(masuk) == 4:
+                rekap_nilai()
                 break
             if int(masuk) == 3:
                 ket = "Hapus"
@@ -324,8 +337,6 @@ def IP():
         ip1 += f
         b += 1
     ip1 = ip1/b
-    print (ip1)
-
 
 def index():
     global list_siswa
@@ -344,33 +355,27 @@ def index():
             else:
                 index = 'E'
             list_siswa[i]["Pelajaran"][k]["index"] = index
-            print (index)
-
-index()
 
 while True:
     laman_utama = '''
 Selamat Datang di Database Siswa Semester Genap Tahun Ajaran 2002 - 2003
 
 Menu Utama:
-1. List Nilai Mahasiswa
-2. Raport Mahasiswa
-3. Kemahasiswaan
-4. Editor Nilai Mahasiswa
-5. Keluar    
+1. Raport Mahasiswa
+2. Kemahasiswaan
+3. Editor Nilai Mahasiswa
+4. Keluar    
 '''
     print(laman_utama)
     pilihan = input('Pilihan Menu : ')
     try:
-        if int(pilihan) == 5:
+        if int(pilihan) == 4:
             break
         elif int(pilihan) == 1:
-            rekap_nilai()
-        elif int(pilihan) == 2:
             raport()
-        elif int(pilihan) == 3:
+        elif int(pilihan) == 2:
             kemahasiswaan()
-        elif int(pilihan) == 4:
+        elif int(pilihan) == 3:
             nilai()
     except:
         print("Masukan Nilai dengan Teliti")
